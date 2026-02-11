@@ -1,0 +1,12 @@
+@if (station()) {
+  <h1 class="text-2xl font-bold mb-4">
+    {{station().properties.name}}
+  </h1>
+
+  <p><strong>Helbidea:</strong> {{ station().properties.address }}</p>
+  <p><strong>Udalerria:</strong> {{ station().properties.location.municipality }}</p>
+  <p><strong>Probintzia:</strong> {{ station().properties.location.county }}</p>
+
+} @else {
+  <p>Kargatzen…</p>
+}

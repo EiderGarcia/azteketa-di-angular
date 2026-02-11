@@ -1,0 +1,34 @@
+<div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+    <table class="w-full text-sm text-left rtl:text-right text-body">
+        <thead class="bg-neutral-secondary-soft border-b border-default">
+            <tr>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Izena
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Helbidea
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Udalerria
+                </th>
+                <th scope="col" class="px-6 py-3 font-medium">
+                    Probintzia
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (stations()){
+            @for (station of stations(); track station.properties.id){
+            <tr class="odd:bg-gray-200 even:bg-neutral-secondary-soft border-b border-default cursor-pointer hover:bg-gray-300 transition"
+                (click)="goToStation(station.properties.id)">
+                <td scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">{{station.properties.name}}
+                </td>
+                <td class="px-6 py-4">{{station.properties.address}}</td>
+                <td class="px-6 py-4">{{station.properties.location.municipality}}</td>
+                <td class="px-6 py-4">{{station.properties.location.county}}</td>
+            </tr>
+            }
+            }
+        </tbody>
+    </table>
+</div>
